@@ -1,5 +1,8 @@
 from modDB import *
 
 cnx = opendb()
-add_profile(cnx)
+resultado = login_query(cnx,3)
+print resultado
 closedb(cnx)
+
+
