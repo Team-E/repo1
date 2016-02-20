@@ -1,0 +1,292 @@
+-- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: angels
+-- ------------------------------------------------------
+-- Server version	5.5.47-0+deb8u1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `city`
+--
+
+DROP TABLE IF EXISTS `city`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `city` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `city` varchar(80) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `city`
+--
+
+LOCK TABLES `city` WRITE;
+/*!40000 ALTER TABLE `city` DISABLE KEYS */;
+INSERT INTO `city` VALUES (1,'Osnabrueck'),(2,'Bremen'),(3,'Hannover'),(4,'Dresden');
+/*!40000 ALTER TABLE `city` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gender`
+--
+
+DROP TABLE IF EXISTS `gender`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gender` (
+  `uid` int(8) NOT NULL AUTO_INCREMENT,
+  `gender` varchar(80) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gender`
+--
+
+LOCK TABLES `gender` WRITE;
+/*!40000 ALTER TABLE `gender` DISABLE KEYS */;
+INSERT INTO `gender` VALUES (1,'female'),(2,'male'),(3,'both');
+/*!40000 ALTER TABLE `gender` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `meeting`
+--
+
+DROP TABLE IF EXISTS `meeting`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `meeting` (
+  `id` int(11) NOT NULL,
+  `seeker_id` int(11) DEFAULT NULL,
+  `helper_id` int(11) DEFAULT NULL,
+  `need_id` int(11) DEFAULT NULL,
+  `helper_acc` int(11) DEFAULT NULL,
+  `seeker_acc` int(11) DEFAULT NULL,
+  `seeker_scored` int(11) DEFAULT NULL,
+  `helper_scored` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `meeting`
+--
+
+LOCK TABLES `meeting` WRITE;
+/*!40000 ALTER TABLE `meeting` DISABLE KEYS */;
+/*!40000 ALTER TABLE `meeting` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `new_need`
+--
+
+DROP TABLE IF EXISTS `new_need`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `new_need` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `task_dt` datetime DEFAULT NULL,
+  `city` int(11) DEFAULT '1',
+  `place` int(11) DEFAULT '1',
+  `state` int(11) DEFAULT '3',
+  `comment` varchar(140) DEFAULT 'I need your help',
+  `gender` int(11) DEFAULT '3',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `new_need`
+--
+
+LOCK TABLES `new_need` WRITE;
+/*!40000 ALTER TABLE `new_need` DISABLE KEYS */;
+INSERT INTO `new_need` VALUES (1,66666,'2016-02-23 14:00:48',3,1,3,'I need help',3),(2,33333333,'2016-02-24 16:00:48',1,1,3,'I need help',3),(3,444444,'2016-02-23 13:00:48',1,1,3,'I need help',3),(4,444444,'2016-02-26 13:00:48',1,3,3,'Doctor',1);
+/*!40000 ALTER TABLE `new_need` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `places`
+--
+
+DROP TABLE IF EXISTS `places`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `places` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `place` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `places`
+--
+
+LOCK TABLES `places` WRITE;
+/*!40000 ALTER TABLE `places` DISABLE KEYS */;
+INSERT INTO `places` VALUES (1,'Authority'),(2,'Housing'),(3,'Doctor');
+/*!40000 ALTER TABLE `places` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `profile`
+--
+
+DROP TABLE IF EXISTS `profile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profile` (
+  `uid` int(15) NOT NULL,
+  `username` varchar(80) NOT NULL DEFAULT '',
+  `password` varchar(80) NOT NULL DEFAULT '',
+  `name` varchar(80) NOT NULL DEFAULT '',
+  `gender` int(8) NOT NULL DEFAULT '0',
+  `post` int(8) NOT NULL DEFAULT '0',
+  `city` int(11) NOT NULL DEFAULT '0',
+  `email` varchar(80) NOT NULL DEFAULT '',
+  `phone` varchar(80) NOT NULL DEFAULT '',
+  `type` int(8) NOT NULL DEFAULT '0',
+  `regdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`uid`),
+  UNIQUE KEY `uid_UNIQUE` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profile`
+--
+
+LOCK TABLES `profile` WRITE;
+/*!40000 ALTER TABLE `profile` DISABLE KEYS */;
+INSERT INTO `profile` VALUES (3,'login1','pass1','name1',1,49080,1,'test@test','26',1,'2016-02-19 23:43:48'),(4,'login2','pass3','name3',1,0,0,'test3@test3','123456',0,'2016-02-20 11:27:15'),(66666,'login666','pass666','Frank',2,0,1,'test@test','123456',0,'2016-02-20 19:48:01'),(444444,'login1','pass1','Pepa',1,0,1,'test@test','123456',0,'2016-02-20 19:37:56'),(12345555,'login2','pass3','name4',1,0,0,'test3@test3','123456',0,'2016-02-20 13:29:08'),(33333333,'login33','pass33','Robert',2,0,1,'test@test','123456',0,'2016-02-20 19:39:43'),(99912345,'login2','pass3','name5',1,0,0,'test3@test3','123456',0,'2016-02-20 13:31:53');
+/*!40000 ALTER TABLE `profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `state`
+--
+
+DROP TABLE IF EXISTS `state`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `state` (
+  `state` int(11) NOT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`state`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `state`
+--
+
+LOCK TABLES `state` WRITE;
+/*!40000 ALTER TABLE `state` DISABLE KEYS */;
+INSERT INTO `state` VALUES (1,'success'),(2,'failure'),(3,'pending');
+/*!40000 ALTER TABLE `state` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `states`
+--
+
+DROP TABLE IF EXISTS `states`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `states` (
+  `state` int(11) NOT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`state`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `states`
+--
+
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `time_av`
+--
+
+DROP TABLE IF EXISTS `time_av`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `time_av` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `from_dt` datetime DEFAULT NULL,
+  `to_dt` datetime DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `city` int(11) DEFAULT '1',
+  `comment` varchar(140) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `time_av`
+--
+
+LOCK TABLES `time_av` WRITE;
+/*!40000 ALTER TABLE `time_av` DISABLE KEYS */;
+INSERT INTO `time_av` VALUES (1,12345555,'2016-02-25 14:00:48','2016-02-25 18:00:48',3,1,'I want to help you'),(2,12345555,'2016-02-22 14:00:48','2016-02-22 18:00:48',3,1,'I want to help you'),(3,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,1,'I want to help you'),(4,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,2,'I want to help you'),(5,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,3,'I want to help you');
+/*!40000 ALTER TABLE `time_av` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `type` (
+  `uid` int(8) NOT NULL AUTO_INCREMENT,
+  `type` varchar(80) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `type`
+--
+
+LOCK TABLES `type` WRITE;
+/*!40000 ALTER TABLE `type` DISABLE KEYS */;
+INSERT INTO `type` VALUES (1,'seeker'),(2,'helper');
+/*!40000 ALTER TABLE `type` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-02-20 20:59:45
