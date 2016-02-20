@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    
+
     <title>Jumbotron Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" >
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <script src="../js/ex1.js"></script>
 
 </head>
 
@@ -64,23 +65,46 @@
     </div>
 </nav>
 
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
         <h1>WHAT DO YOU WANT?</h1>
         <p> Type something! :)</p>
 
-        <input type="button" value="SEARCH" onclick="ex1()" style="WIDTH: 200px; HEIGHT: 50px">
+        <input type="button" value="SEARCH" onclick="search()" style="WIDTH: 200px; HEIGHT: 50px">
 
         <br>
-        <input type="text" class="hoge" id="query3" />
-        <input type="button" value="CITY" onclick="ex1()">
+        <!--<input type="text" class="hoge" id="query3" />-->
 
-        <input type="text" class="hoge" id="query4" />
-        <input type="button" value="DATE" onclick="ex1()">
 
-        <input type="text" class="hoge" id="query5" />
-        <input type="button" value="WHO YOU ARE" onclick="ex1()">
+
+        <!--<div class="form-group">-->
+        <!--<label for="sel1">CITY:</label>-->
+
+        <select class="form-control" id="city" style="width:150px;" >
+
+            <option>Osnabrueck</option>
+            <option>Munich</option>
+            <option>Hambrug</option>
+            <option>Koln</option>
+
+        </select>
+
+
+        <!--</div>-->
+
+
+        <input type="text" id="datepicker">
+        <!--<input type="text" class="hoge" id="query4" />-->
+
+        <select class="form-control" id="role" style="width:150px;" >
+
+            <option>Seeker</option>
+            <option>Offer</option>
+
+        </select>
+
 
 
         <!--<button type="button" class="btn btn-lg">SEARCH</button>
@@ -101,12 +125,17 @@
     <div class="container">
         <!--<h1>POST</h1>-->
         <p> Type something! :)</p>
-        <input type="button"  value="POST" onclick="ex1()"  style="WIDTH: 200px; HEIGHT: 50px">
+        <!--<input type="button"  value="POST REQUEST" onclick="post_request()"  style="WIDTH: 200px; HEIGHT: 50px">-->
+        <!--<input type="button"  value="POST OFFER" onclick="post_offer()()"  style="WIDTH: 200px; HEIGHT: 50px">-->
+
+        <input type="button"  value="POST REQUEST" onClick="location.href='../html/post_offer.html'" style="WIDTH: 200px; HEIGHT: 50px">
+
+        <input type="button"  value="POST OFFER" onClick="location.href='../html/post_seeker.html'" style="WIDTH: 200px; HEIGHT: 50px">
 
 
         <br>
 
-        <input type="text" id="datepicker">
+
 
 
         <!--
@@ -119,9 +148,11 @@
 
 
 
-        -->
+
         <input type="text" class="hoge" id="query5" />
         <input type="button" value="WHO YOU ARE" onclick="ex1()">
+        -->
+
         <br>
 
 
@@ -173,7 +204,7 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../js/bootstrap/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-en.min.js"></script>
 
 <script>
     window.onload = function() {

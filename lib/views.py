@@ -14,15 +14,29 @@ def route_display():
 class HelloView(FlaskView):
     def __init__(self):
         self.PIKA = HI(10)
-    @route('/init', methods=['GET','POST'])
+    @route('/search', methods=['GET','POST'])
     def hii(self):
+
+        city = request.form['city']
+        date = request.form['date']
+        role = request.form['role']
+
+        
+        
+        print city,date,role
+        
         self.PIKA = HI(20)
-        return "hi"
-    @route('/hoge', methods=['GET','POST'])
-    def index(self):
+        return "searched"
+    @route('/post_request', methods=['GET','POST'])
+    def p_request(self):
         HI().kimi()
         self.PIKA.kimi()
-        return "hello world"
+        return "requested"
+    @route('/post_offer', methods=['GET','POST'])
+    def p_offer(self):
+        HI().kimi()
+        self.PIKA.kimi()
+        return "offerred"
 
 class HI:
   xx = 5
