@@ -1,8 +1,12 @@
 from modDB import *
 
 cnx = opendb()
-resultado = login_query(cnx,3)
-print resultado
+resultado = offers_query(cnx,'Osnabrueck')
+for i in resultado:
+    print i[1]
+
+#print resultado
 closedb(cnx)
+
 
 
