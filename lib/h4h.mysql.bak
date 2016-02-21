@@ -109,7 +109,7 @@ CREATE TABLE `new_need` (
   `comment` varchar(140) DEFAULT 'I need your help',
   `gender` int(11) DEFAULT '3',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `new_need` (
 
 LOCK TABLES `new_need` WRITE;
 /*!40000 ALTER TABLE `new_need` DISABLE KEYS */;
-INSERT INTO `new_need` VALUES (1,66666,'2016-02-23 14:00:48',3,1,3,'I need help',3),(2,33333333,'2016-02-24 16:00:48',1,1,3,'I need help',3),(3,444444,'2016-02-23 13:00:48',1,1,3,'I need help',3),(4,444444,'2016-02-26 13:00:48',1,3,3,'Doctor',1);
+INSERT INTO `new_need` VALUES (1,66666,'2016-02-23 14:00:48',3,1,3,'I need help',3),(2,33333333,'2016-02-24 16:00:48',1,1,3,'I need help',3),(3,444444,'2016-02-23 13:00:48',1,1,3,'I need help',3),(4,444444,'2016-02-26 13:00:48',1,3,3,'Doctor',1),(7,33333333,'2016-03-02 00:00:00',1,1,1,'I need help',1),(12,3,'2016-02-29 00:00:00',1,1,3,'I need help',1),(13,4,'2016-02-29 00:00:00',2,3,3,'prueba numero 1',3),(14,4,'2016-02-29 00:00:00',2,2,3,'prueba numero 1',3);
 /*!40000 ALTER TABLE `new_need` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,11 +239,11 @@ CREATE TABLE `time_av` (
   `uid` int(11) NOT NULL,
   `from_dt` datetime DEFAULT NULL,
   `to_dt` datetime DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
+  `state` int(11) DEFAULT '3',
   `city` int(11) DEFAULT '1',
-  `comment` varchar(140) DEFAULT NULL,
+  `comment` varchar(140) DEFAULT 'I will help you',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `time_av` (
 
 LOCK TABLES `time_av` WRITE;
 /*!40000 ALTER TABLE `time_av` DISABLE KEYS */;
-INSERT INTO `time_av` VALUES (1,12345555,'2016-02-25 14:00:48','2016-02-25 18:00:48',3,1,'I want to help you'),(2,12345555,'2016-02-22 14:00:48','2016-02-22 18:00:48',3,1,'I want to help you'),(3,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,1,'I want to help you'),(4,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,2,'I want to help you'),(5,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,3,'I want to help you');
+INSERT INTO `time_av` VALUES (1,12345555,'2016-02-25 14:00:48','2016-02-25 18:00:48',3,1,'I want to help you'),(2,12345555,'2016-02-22 14:00:48','2016-02-22 18:00:48',3,1,'I want to help you'),(3,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,1,'I want to help you'),(4,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,2,'I want to help you'),(5,99912345,'2016-02-23 14:00:48','2016-02-23 18:00:48',3,3,'I want to help you'),(7,444444,'2016-02-29 00:00:00','2016-03-01 23:00:00',NULL,2,'ich mochte dir helfen'),(8,444444,'2016-02-29 00:00:00','2016-03-01 23:00:00',3,2,'ich mochte dir helfen');
 /*!40000 ALTER TABLE `time_av` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-20 20:59:45
+-- Dump completed on 2016-02-21 11:42:09
