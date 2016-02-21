@@ -6,19 +6,9 @@ import json
 import datetime
 from flask.ext.classy import FlaskView,route
 
-#from pymongo import MongoClient, ASCENDING, DESCENDING
 
 
 
-#client = MongoClient('mongodb://localhost:27017')
-
-#db = client.team_E
-
-#user = db.userInfo
-
-#mainInfo = db.mainInfo
-
-from modDB import *
 
 
 def date_handler(obj):
