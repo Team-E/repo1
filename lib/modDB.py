@@ -1,6 +1,6 @@
 from __future__ import print_function
 from datetime import date, datetime, timedelta
-#import mysql.connector
+import mysql.connector
 
 from mysql import connector
 
@@ -9,7 +9,7 @@ def opendb():
         config = {
           'user': 'test',
           'password': 'test',
-          'host': '192.168.0.145',
+          'host': '127.0.0.1',
           'database': 'angels',
           'raise_on_warnings': True,
         }

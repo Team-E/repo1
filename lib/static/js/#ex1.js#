@@ -17,7 +17,8 @@ function search(){
 	//s = json.stringify(response);
 	listed = response;
 	console.log("l",listed);
-	location.href = "../html/table.html";
+	
+	//location.href = "../html/table.html";
 	
 	//console.log(s);
 

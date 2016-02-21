@@ -48,14 +48,14 @@ class HelloView(FlaskView):
         else:
             elor = 0
         
-        asked_info = mainInfo.find({city:'city',date:'date',elor:"role"})
-
+#        asked_info = mainInfo.find({city:'city',date:'date',elor:"role"})
+ 
         if role == 'Seeker':
             cnx = opendb()
             resultado = request_query(cnx,city)
             #print resultado
             result_json= json.dumps(resultado, default=date_handler)
-
+ 
             print result_json
             closedb(cnx)
             return result_json
@@ -69,7 +69,7 @@ class HelloView(FlaskView):
             for i in resultado:
                 print json.dumps(i)
         
-
+ 
             print resultado
             return resultado
 
