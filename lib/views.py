@@ -4,6 +4,18 @@ from flask import Flask, session, redirect, url_for, escape, request, render_tem
 from lib import app
 import json
 from flask.ext.classy import FlaskView,route
+from pymongo import MongoClient, ASCENDING, DESCENDING
+
+
+
+client = MongoClient('mongodb://localhost:27017')
+
+db = client.team_E
+
+user = db.userInfo
+
+mainInfo = db.mainInfo
+
 
 
 @app.route('/')
@@ -21,21 +33,41 @@ class HelloView(FlaskView):
         date = request.form['date']
         role = request.form['role']
 
+        if role == 0:
+            elor = 1
+        else:
+            elor = 0
         
+        asked_info = mainInfo.find({city:'city',date:'date',elor:"role"})
         
         print city,date,role
+        print asked_info
         
-        self.PIKA = HI(20)
         return "searched"
-    @route('/post_request', methods=['GET','POST'])
-    def p_request(self):
-        HI().kimi()
-        self.PIKA.kimi()
+
+    
+    @route('/insert', methods=['GET','POST'])
+    def data_input(self):
+
+        
+        city = request.form['city']
+        date = request.form['date']
+        role = request.form['role']
+        
+        mainInfo.insert({'city':city,'date':date,'role':role})
+        
+        
+        print city,date,role,"inserted!!"
+        
+
+        
         return "requested"
+
+    
     @route('/post_offer', methods=['GET','POST'])
     def p_offer(self):
-        HI().kimi()
-        self.PIKA.kimi()
+
+                
         return "offerred"
 
 class HI:

@@ -4,6 +4,8 @@ a:hover {
     color: #333;
 }
 
+
+
 /* Custom default button */
 .btn-default,
 .btn-default:hover,
@@ -15,7 +17,9 @@ a:hover {
 }
 
 form{
+
     padding-top: 25%;
+
 }
 
 /*
