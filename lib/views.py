@@ -1,4 +1,3 @@
-
 import os
 from flask import Flask, session, redirect, url_for, escape, request, render_template, Response, send_from_directory
 from lib import app
@@ -6,17 +5,17 @@ import json
 import datetime
 from flask.ext.classy import FlaskView,route
 
-from pymongo import MongoClient, ASCENDING, DESCENDING
+#from pymongo import MongoClient, ASCENDING, DESCENDING
 
 
 
-client = MongoClient('mongodb://localhost:27017')
+#client = MongoClient('mongodb://localhost:27017')
 
-db = client.team_E
+#db = client.team_E
 
-user = db.userInfo
+#user = db.userInfo
 
-mainInfo = db.mainInfo
+#mainInfo = db.mainInfo
 
 from modDB import *
 
@@ -60,9 +59,6 @@ class HelloView(FlaskView):
             print result_json
             closedb(cnx)
             return result_json
-
-
-
         
         elif role == 'Helper':
             cnx = opendb()
