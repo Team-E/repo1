@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sexy Forms</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            $("input:checkbox, input:radio, input:file, select").uniform();
+        });
+    </script>
+</head>
+<body>
+<article>
+    <h1>Sexy form elements</h1>
+    <form>
+        <ul>
+            <li>
+                <label for="name">Your Name:</label>
+                <input type="text" size="40" id="name" />
+            </li>
+            <li>
+                <label for="email">Your Email:</label>
+                <input type="email" size="40" id="email" />
+            </li>
+            <li>
+                <label for="car">What's my options:</label>
+                <select id="car">
+
+                    <option>Volvo</option>
+                    <option>Saab</option>
+                    <option>Mercedes</option>
+                    <option>Audi</option>
+                    <option>Other&hellip;</option>
+                </select>
+            </li>
+            <li>
+                <label><input type="radio" name="radio" /> Pick one</label>
+                <label><input type="radio" name="radio" /> And stick with it</label>
+            </li>
+            <li>
+                <label><input type="checkbox" /> Can haz tickbox?</label>
+            </li>
+            <li>
+                <label>Upload a file:</label>
+                <input type="file" />
+            </li>
+            <li>
+                <label for="message">Message:</label>
+                <textarea cols="50" rows="5" id="message"></textarea>
+            </li>
+        </ul>
+        <p>
+            <button type="submit" class="action">Call to action</button>
+            <button type="reset" class="right">Reset</button>
+        </p>
+    </form>
+</article>
+<footer>
+    <p>A little freebie made with <strong>♥</strong> by the nice folks over at <a href="http://www.webdezign.co.uk">Webdezign</a></p>
+</footer>
+<div id="like">
+    <div class="wrapper">
+        <h6>We love web design, do you?</h6>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="webdezign">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+        <g:plusone size="small"></g:plusone>
+        <div class="fb-like" data-send="false" data-width="400" data-show-faces="true"></div>
+    </div>
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+<!-- Place this tag in your head or just before your close body tag -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<style>
+    .wrapper {width:960px;margin:0px auto;}
+    #like {position:fixed;z-index:9999;bottom:0px;left:0px;width:100%;padding:10px 0px 5px;background:#cdcc34;-webkit-animation: delay 3s;-moz-animation: delay 3s;}
+    @-webkit-keyframes delay{
+        0%   {opacity:0;bottom:-42;}
+        80%   {opacity:0;bottom:-42;}
+        81%   {opacity:1;bottom:-42;}
+        100% {bottom:0px;}
+    }
+    @-moz-keyframes delay {
+        0%   {opacity:0;bottom:100%;}
+        90%   {opacity:0;bottom:100%;}
+        95%  {opacity:1;bottom:-10px;}
+        100% {bottom:0px;}
+    }
+    #like h6 {float:left;font-family:"calluna-sans-1", "calluna-sans-2", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:1.167em;font-weight:normal;color:#333;padding-right:20px;}
+    #like iframe, #like .fb-like {border-right:1px dotted #333;float:left;margin-right:16px;display:inline-block;}
+</style>
