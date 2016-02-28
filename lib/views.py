@@ -60,14 +60,14 @@ class HelloView(FlaskView):
             closedb(cnx)
             return result_json
         
-        elif role == 'Helper':
+        elif role == 'Offer':
             cnx = opendb()
-            resultado = offers_query(cnx,city,date)
+            resultado = offers_query(cnx,city)
             #print resultado
             closedb(cnx)
-            print resultado
-            for i in resultado:
-                print json.dumps(i)
+            result_json= json.dumps(resultado, default=date_handler)
+ 
+            print result_json
         
  
             print resultado
